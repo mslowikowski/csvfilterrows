@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip 3 install .
+# RUN pip3 install .
 
 WORKDIR /app/lastpass-csv
 
