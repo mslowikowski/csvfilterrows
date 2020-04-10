@@ -12,10 +12,8 @@ WORKDIR /app
 
 COPY . .
 
-# RUN pip3 install .
-
 WORKDIR /app/lastpass-csv
 
-ENTRYPOINT [ "python3" "lastpass-csv.py" ]
+ENTRYPOINT [ "python3", "lastpass-csv.py" ]
 
 CMD [ "--help" ]
