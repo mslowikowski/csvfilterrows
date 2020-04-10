@@ -14,7 +14,7 @@ def add_len(str_list):
 
 def main():
     parser = argparse.ArgumentParser(description='Parse a lastpass csv export and transform it as desired.', )
-    parser.add_argument('-m', '--maximum', help=f"The maximum length of an entry (default = {defaultMaximum})", required=False, default=defaultMaximum)
+    parser.add_argument('-m', '--maximum', help=f"The maximum length of an entry (default = {defaultMaximum})", required=False, default=defaultMaximum, type=int)
     parser.add_argument('-i', '--input', help="The LastPass csv file to be parsed", required=True)
     parser.add_argument('-o', '--output', help="The output file to save the transformed data", required=True)
     # get the args
