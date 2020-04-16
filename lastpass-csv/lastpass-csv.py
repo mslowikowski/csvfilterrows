@@ -4,13 +4,14 @@ import os
 import csv
 
 os.environ['COLUMNS'] = "80"
-defaultMaximum = 1024
+defaultMaximum = 10000
 
-def add_len(str_list):
-    total_len = 0
-    for ele in str_list: 
-        total_len += len(ele)
-    return total_len
+def max_len(str_list):
+    maxlen = -1
+    for ele in str_list:
+        if len(ele) > maxlen: 
+            maxlen = len(ele)
+    return maxlen
 
 def main():
     parser = argparse.ArgumentParser(description='Parse a lastpass csv export and transform it as desired.', )
@@ -26,7 +27,7 @@ def main():
             reader = csv.reader(lpfile)
             writer = csv.writer(outfile)
             for row in reader:
-                if add_len(row) < args.maximum:
+                if max_len(row) < args.maximum:
                     writer.writerow(row)
 
 if __name__ == "__main__":
