@@ -12,8 +12,8 @@ WORKDIR /app
 
 COPY . .
 
-WORKDIR /app/lastpass-csv
+WORKDIR /app/csvfilterrows
 
-ENTRYPOINT [ "python3", "lastpass-csv.py" ]
+ENTRYPOINT [ "python3", "csvfilterrows.py" ]
 
 CMD [ "--help" ]

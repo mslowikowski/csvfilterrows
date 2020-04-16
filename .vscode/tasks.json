@@ -28,7 +28,7 @@
                     ]
             },
             "python": {
-                "file": "lastpass-csv.py",
+                "file": "csvfilterrows.py",
                 "args": ["-i", "/data/lp.csv", "-o", "/data/out.csv"]
             }
         }
