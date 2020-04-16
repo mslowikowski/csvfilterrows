@@ -2,85 +2,53 @@
 
 This python script filters rows from a CSV file that contain values with lengths exceeding a specified maximum.
 
+## Basics
+
+    usage: csvfilterrows.py [-h] [-m MAXIMUM] -i INPUT -o OUTPUT
+
+    Parse a lastpass csv export and transform it as desired.
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    -m MAXIMUM, --maximum MAXIMUM
+                            The maximum length of an entry (default = 10000)
+    -i INPUT, --input INPUT
+                            The LastPass csv file to be parsed
+    -o OUTPUT, --output OUTPUT
+                            The output file to save the transformed data
+
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to use the script.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [Deployment](#Deployment) for notes on how to use the script.
 
 ### Prerequisites
 
 What software you will need to work on this script
 
-    1. [Python](https://www.python.org/downloads/)
+1. [Visual Studio Code](https://code.visualstudio.com/Download) - Any IDE will do
+2. [Docker](https://docs.docker.com/get-docker/)
+3. [Python](https://www.python.org/downloads) [Optional] - This script was developed using Python 3.8, other versions may work.  Development and running can (and probably should) be done entirely in a container.
 
-### Installing
+### Building
 
-A step by step series of examples that tell you how to get a development env running
+From the commandline you can do the following
 
-Say what the step will be
+1. Build the docker image
 
-```
-Give the example
-```
+    ```Shell
+    docker build -t csvfilterrows .
+    ```
 
-And repeat
+2. Run the container
 
-```
-until finished
-```
+    ```Shell
+    docker run -it --rm  csvfilterrows
+    ```
 
-End with an example of getting some data out of the system or using it for a little demo
+    This example runs the script which returns the help information.
 
-## Running the tests
+    ```Shell
+    docker run -it --rm -v ./data:/data csvfilterrows -i /data/in.csv -o /data/out.csv -m 1000
+    ```
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+    This example demo creates a volume to map a ```./data``` directory on the local host to the ```/data``` directory in the container.  You should change the first directory to match the path of the directory with the file(s) you want to manipulate.
