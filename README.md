@@ -52,3 +52,7 @@ From the commandline you can do the following
     ```
 
     This example demo creates a volume to map a ```./data``` directory on the local host to the ```/data``` directory in the container.  You should change the first directory to match the path of the directory with the file(s) you want to manipulate.
+
+## License
+
+**MIT License**: See [LICENSE](../blob/master/LICENSE) file included in the root of this repository.
