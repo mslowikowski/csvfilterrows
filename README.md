@@ -55,4 +55,4 @@ From the commandline you can do the following
 
 ## License
 
-**MIT License**: See [LICENSE](../blob/master/LICENSE) file included in the root of this repository.
+**MIT License**: See [LICENSE](https://github.com/mslowikowski/csvfilterrows/blob/master/LICENSE) file included in the root of this repository.
