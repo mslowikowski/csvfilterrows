@@ -35,21 +35,15 @@ From the commandline you can do the following
 
 1. Build the docker image
 
-    ```Shell
-    docker build -t csvfilterrows .
-    ```
+        docker build -t csvfilterrows .
 
 2. Run the container
 
-    ```Shell
-    docker run -it --rm  csvfilterrows
-    ```
+        docker run -it --rm  csvfilterrows
 
     This example runs the script which returns the help information.
 
-    ```Shell
-    docker run -it --rm -v ./data:/data csvfilterrows -i /data/in.csv -o /data/out.csv -m 1000
-    ```
+        docker run -it --rm -v ./data:/data csvfilterrows -i /data/in.csv -o /data/out.csv -m 1000
 
     This example demo creates a volume to map a ```./data``` directory on the local host to the ```/data``` directory in the container.  You should change the first directory to match the path of the directory with the file(s) you want to manipulate.
 
